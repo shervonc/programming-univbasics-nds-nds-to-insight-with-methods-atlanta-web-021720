@@ -24,15 +24,9 @@ def directors_totals(nds)
   result = {}
   d_index = 0
   while d_index < nds.length do
-      total = 0
-      m_index = 0
-    while m_index < nds[d_index][:movies].length do
-      total += nds[d_index][:movies][m_index][:worldwide_gross]
-      m_index+= 1
-   
+      dir = nds[d_index]
+    result[dir[:name]] = gross_for_director(dir)
+      d_index += 1
   end
-  result[nds[d_index][:name]]= total
-  d_index +=1
-end
   result
 end
